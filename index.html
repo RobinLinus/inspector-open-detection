@@ -3,6 +3,7 @@
     padding:12%;
     color:white;
     background:teal;
+    font-family:sans-serif;
   }
 </style>
 <h1>Open the console</h1>
@@ -11,8 +12,8 @@ var element = new Image();
 Object.defineProperty(element, 'id', {
   get: function () {
     /* TODO */
-    alert('Console opened');
     document.body.style.background ='tomato';
+    document.querySelector('h1').innerHTML='Console opened';
   }
 });
 console.log('%cHello', element);
