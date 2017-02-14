@@ -1,9 +1,18 @@
+<style>
+  body{
+    padding:12%;
+    color:white;
+    background:teal;
+  }
+</style>
+<h1>Open the console</h1>
 <script>
 var element = new Image();
 Object.defineProperty(element, 'id', {
   get: function () {
     /* TODO */
     alert('Console opened');
+    document.body.style.background ='tomato';
   }
 });
 console.log('%cHello', element);
