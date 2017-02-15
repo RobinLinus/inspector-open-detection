@@ -18,14 +18,35 @@
   <li><a href="https://github.com/RobinLinus/inspector-open-detection" target="_blank">Source on Github</a></li>
 </ul>
 <script>
-var element = new Image();
-Object.defineProperty(element, 'id', {
-  get: function () {
-    /* TODO */
-    document.body.style.background ='tomato';
-    document.querySelector('h1').innerHTML='Inspector opened';
-  }
-});
-console.log('%cHello', element);
+function detectOpen(){
+  var element = new Image();
+  Object.defineProperty(element, 'id', {
+    get: function () {
+      /* TODO */
+      document.body.style.background ='tomato';
+      document.querySelector('h1').innerHTML='Inspector opened';
+      detectClose();
+    }
+  });
+  console.log('%cHello', element);
+}
 
+function detectClose(){
+  var element2 = new Image();
+  var timeout = null;
+  Object.defineProperty(element2, 'id', {
+    get: function () {
+       clearTimeout(timeout);
+       timeout=setTimeout(function(){
+            document.body.style.background='teal';
+            document.querySelector('h1').innerHTML='Inspector closed';
+            console.clear();
+            detectOpen();
+        },1100);
+       setTimeout(function(){console.log(element2)},1000)
+    }
+  });
+  console.log(element2);
+}
+detectOpen();
 </script>
